@@ -13,6 +13,7 @@ module Devise
         return fail(:invalid) if resource.nil?
 
         if validate(resource)
+          session[:ldap_auth] = true
           success!(resource)
         else
           fail(:invalid)
